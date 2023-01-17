@@ -26,9 +26,9 @@ int main(void)
         printf("Index: %d\tImag: %fI\t\tReal: %f\n",i,cimagf(FFT_Array[i]),crealf(FFT_Array[i]));
     }
 
-    free(Lookup_Reverse);                                       //free allocated array in heap
-    free(Window);                                               //free allocated array in heap
-    free(W);                                                    //free allocated array in heap
-    free(FFT_Array);                                            //free allocated array in heap
+    free(Lookup_Reverse);                                        //free allocated array in heap
+    free(Window);                                                //free allocated array in heap
+    free(W);                                                     //free allocated array in heap
+    free(FFT_Array);                                             //free allocated array in heap
 }
 
