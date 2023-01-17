@@ -50,43 +50,48 @@ uint16_t calc_BitReversal(uint16_t Value)
 
 
 
-void init_BRLookup(void)
+uint16_t* init_BRLookup(void)
 {
-    Lookup_Reverse = malloc(sizeof(uint16_t)*N);                           //Allocates memory for lookup array size(2*N)bytes
+    uint16_t *Lookup_Reverse = malloc(sizeof(uint16_t)*N);                  //Allocates memory for lookup array size(2*N)bytes
 
     for(uint16_t i = 0; i < N; i++)
     {
         Lookup_Reverse[i] = calc_BitReversal(i);                          //Calculates the bit reversal for the fft input order
     }
+
+    return Lookup_Reverse;
 }
 
 
 
-void init_WLookup(void)
+complex float* init_WLookup(void)
 {
+    complex float *W;
     W = malloc(sizeof(complex float)*(N/2));                               //Allocate heap memory for twiddle factor lookup
     complex float TempW = 1;                                                    //Initial value for W0 = W^0 = 1
-    complex float Wk = cexpf((-2*M_PI*I)/N);                                 //Value of W1 = W^1
+    complex float Wk = cexpf((-2*M_PI*I)/N);                                    //Value of W1 = W^1
 
     for(uint16_t i = 0; i < (N/2); i++)
     {
         W[i] = TempW;                                                           //Fills lookup array with W[k] = W^k
         TempW *= Wk;                                                            //Computes W^k+1
     }
+
+    return W;                                                                   //Returns pointer to the memory
 }
 
 
 
-void init_FFT(void)
+complex float* init_FFT(void)
 {
-    init_BRLookup();                                                            //Calculate and fill reverse bit array
-    init_WLookup();                                                             //Calculate and fill twiddle factor array
+    complex float* FFT_Array;
     FFT_Array = malloc(sizeof(complex float)*N);                           //Allocate memory for FFT
+    return FFT_Array;                                                           //Returns pointer to the memory
 }
 
 
 
-void calc_FFT(void)
+void calc_FFT(complex float* FFT_Array, complex float* W)
 {
     uint16_t PCalc = (N/2);                                                     //Amount of parallel butterfly computations
     complex float Temp;                                                         //Temporary variable for storing multiplication

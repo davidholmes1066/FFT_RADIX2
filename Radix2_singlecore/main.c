@@ -7,14 +7,16 @@ uint16_t *Lookup_Reverse;                                           //dynamic ar
 
 int main(void)
 {
-    init_FFT();
+    FFT_Array = init_FFT();
+    W = init_WLookup();
+    Lookup_Reverse = init_BRLookup();
 
     for(int i = 0; i < N; i++)
     {
         FFT_Array[calc_BitReversal(i)] = (complex float)i;
     }
 
-    calc_FFT();
+    calc_FFT(FFT_Array, W);
 
     for(int i = 0; i < N; i++)
     {
