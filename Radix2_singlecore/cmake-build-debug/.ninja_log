@@ -1,0 +1,7 @@
+# ninja log v5
+2	84	6956572362523817	CMakeFiles/Radix2_singlecore.dir/main.c.obj	8b16d5714ed95d7e
+91	189	6956572363540906	Radix2_singlecore.exe	a220d80122214ca1
+6	90	6956572362593430	CMakeFiles/Radix2_singlecore.dir/fft.c.obj	57e1992101d8f872
+7	102	6956607949670321	CMakeFiles/Radix2_singlecore.dir/main.c.obj	969f11c14996ae06
+2	105	6956607949710190	CMakeFiles/Radix2_singlecore.dir/fft.c.obj	e2268c449f54d7fb
+105	213	6956607950757389	Radix2_singlecore.exe	a220d80122214ca1

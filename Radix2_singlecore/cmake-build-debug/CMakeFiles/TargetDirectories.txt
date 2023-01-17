@@ -1,0 +1,3 @@
+C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/cmake-build-debug/CMakeFiles/Radix2_singlecore.dir
+C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/cmake-build-debug/CMakeFiles/rebuild_cache.dir
