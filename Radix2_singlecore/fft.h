@@ -16,6 +16,7 @@
 #define A3 0.01168
 
 
+
 uint16_t calc_BitReversal(uint16_t Value);                                                  //Reverses log2(N) bits of input
 uint16_t *init_BRLookup(void);                                                              //generates lookup array for fft input order (returns pointer to memory)
 complex float *init_WLookup(void);                                                          //Generates lookup array for twiddle factors (Wk) (returns pointer to memory)

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/avr_complex.c" "CMakeFiles/Radix2_singlecore.dir/avr_complex.c.obj" "gcc" "CMakeFiles/Radix2_singlecore.dir/avr_complex.c.obj.d"
   "C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/fft.c" "CMakeFiles/Radix2_singlecore.dir/fft.c.obj" "gcc" "CMakeFiles/Radix2_singlecore.dir/fft.c.obj.d"
   "C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/main.c" "CMakeFiles/Radix2_singlecore.dir/main.c.obj" "gcc" "CMakeFiles/Radix2_singlecore.dir/main.c.obj.d"
   )

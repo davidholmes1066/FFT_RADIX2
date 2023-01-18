@@ -128,6 +128,30 @@ Radix2_singlecore/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Radix2_singlecore.dir\build.make CMakeFiles/Radix2_singlecore.dir/build
 .PHONY : Radix2_singlecore/fast
 
+avr_complex.obj: avr_complex.c.obj
+.PHONY : avr_complex.obj
+
+# target to build an object file
+avr_complex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Radix2_singlecore.dir\build.make CMakeFiles/Radix2_singlecore.dir/avr_complex.c.obj
+.PHONY : avr_complex.c.obj
+
+avr_complex.i: avr_complex.c.i
+.PHONY : avr_complex.i
+
+# target to preprocess a source file
+avr_complex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Radix2_singlecore.dir\build.make CMakeFiles/Radix2_singlecore.dir/avr_complex.c.i
+.PHONY : avr_complex.c.i
+
+avr_complex.s: avr_complex.c.s
+.PHONY : avr_complex.s
+
+# target to generate assembly for a file
+avr_complex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Radix2_singlecore.dir\build.make CMakeFiles/Radix2_singlecore.dir/avr_complex.c.s
+.PHONY : avr_complex.c.s
+
 fft.obj: fft.c.obj
 .PHONY : fft.obj
 
@@ -185,6 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Radix2_singlecore
+	@echo ... avr_complex.obj
+	@echo ... avr_complex.i
+	@echo ... avr_complex.s
 	@echo ... fft.obj
 	@echo ... fft.i
 	@echo ... fft.s

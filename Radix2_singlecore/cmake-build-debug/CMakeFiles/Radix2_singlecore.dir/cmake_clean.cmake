@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Radix2_singlecore.dir/avr_complex.c.obj"
+  "CMakeFiles/Radix2_singlecore.dir/avr_complex.c.obj.d"
   "CMakeFiles/Radix2_singlecore.dir/fft.c.obj"
   "CMakeFiles/Radix2_singlecore.dir/fft.c.obj.d"
   "CMakeFiles/Radix2_singlecore.dir/main.c.obj"

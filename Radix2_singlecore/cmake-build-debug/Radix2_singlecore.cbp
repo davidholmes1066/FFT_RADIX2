@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/avr_complex.c">
+			<Option target="Radix2_singlecore"/>
+		</Unit>
+		<Unit filename="C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/avr_complex.h">
+			<Option target="Radix2_singlecore"/>
+		</Unit>
 		<Unit filename="C:/Users/Dell Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/fft.c">
 			<Option target="Radix2_singlecore"/>
 		</Unit>
