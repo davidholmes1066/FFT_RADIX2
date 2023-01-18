@@ -18,6 +18,8 @@
  *   to be implemented on simple single core microcontrollers. Provided
  *   These at least have 16N bytes of SRAM.
  *
+ *   Later additions will write data to flash memory.
+ *
  *   Note: The author of this code is by no means an expert,
  *   therefore the code may not be as efficient or fast as
  *   alternatives out there. That being said,
