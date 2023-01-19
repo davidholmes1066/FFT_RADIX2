@@ -14,14 +14,16 @@ int main(void)
     Lookup_Reverse = init_BRLookup();
     Window = init_Window();
 
-    complexfloat E;
+    complexfloat *E;
     complex float T;
 
-    E = cf_exp((float)(2*M_PI/N));
-    T = cexpf(2*I*M_PI/N);
+    E = init_avr_Wlookup();
 
-    printf("E: I: %f\tR: %f\n",E.im, E.re);
-    printf("T: I: %f\tR: %f\n",cimagf(T), crealf(T));
+    for (uint16_t i = 0; i < (N/2); i++)
+    {
+        printf("imag: %f\treal: %f\t\t", E[i].im, E[i].re);
+        printf("imag: %f\t, real: %f\n",cimagf(W[i]),crealf(W[i]));
+    }
 
     for(int i = 0; i < N; i++)
     {

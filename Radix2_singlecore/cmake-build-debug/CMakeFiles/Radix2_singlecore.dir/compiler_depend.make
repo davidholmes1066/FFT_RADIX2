@@ -40,7 +40,8 @@ CMakeFiles/Radix2_singlecore.dir/fft.c.obj: C:/Users/Dell\ Latitude/Documents/Gi
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/complex.h
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/complex.h \
+  C:/Users/Dell\ Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/avr_complex.h
 
 CMakeFiles/Radix2_singlecore.dir/main.c.obj: C:/Users/Dell\ Latitude/Documents/Github/FFT_RADIX2/Radix2_singlecore/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/x86_64-w64-mingw32/include/complex.h \

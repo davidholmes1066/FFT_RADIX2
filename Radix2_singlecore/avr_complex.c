@@ -41,8 +41,32 @@ complexfloat cf_exp(float phi)
     else                                                                //negative exponent return cos(phi) - Isin(phi)
     {
         C.re = cosf(phi);
-        C.im = (sinf(phi)*-1);
+        C.im = (sinf(phi));
     }
 
     return C;                                                           //return complex exponent
+}
+
+
+
+complexfloat cf_plus(complexfloat A, complexfloat B)
+{
+    complexfloat C;
+
+    C.im = A.im + B.im;                                                 //Add complex components
+    C.re = A.re + B.re;                                                 //Add real components
+
+    return C;                                                           //Return complex struct
+}
+
+
+
+complexfloat cf_minus(complexfloat A, complexfloat B)
+{
+    complexfloat C;
+
+    C.im = A.im - B.im;                                                 //Subtract complex components
+    C.re = A.re - B.re;                                                 //Subtract real components
+
+    return C;                                                           //Return complex struct
 }

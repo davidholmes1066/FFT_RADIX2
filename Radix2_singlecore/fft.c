@@ -30,6 +30,7 @@
 
 
 #include "fft.h"
+#include "avr_complex.h"
 
 uint16_t calc_BitReversal(uint16_t Value)
 {
@@ -140,3 +141,85 @@ void apply_Window(complex float *FFT_Array, float *Window, uint16_t *Lookup_Reve
         FFT_Array[Lookup_Reverse[N-i]] *= Window[i-1];                                                          //Apply window to second half of samples
     }
 }
+
+
+/*
+ * The avr-gcc compiler for avr (Atmel RISC) microcontrollers does not support complex.h
+ * or efficient computations with floating point numbers.
+ * The functions included in avr_complex.h together with the functions below ensure fast
+ * and efficient fourier transforms for the AVR microcontrollers.
+ */
+
+
+
+complexfloat *init_avr_Wlookup(void)
+{
+    complexfloat *W = malloc(sizeof(complexfloat)*(N/2));                                                   //Allocate heap memory for the twiddle factors
+    complexfloat TempW;                                                                                          //Create temporary variable
+    TempW.re = 1, TempW.im = 0;                                                                                  //Set to value W^0
+    complexfloat Wk = cf_exp((-2*M_PI)/N);                                                                   //Value Wn^1
+
+    for(uint16_t i = 0; i < (N/2); i++)
+    {
+        W[i].re = TempW.re;                                                                                      //Generate twiddle factors
+        W[i].im = TempW.im;
+
+        TempW = cf_multiply(TempW, Wk);                                                                    //Update temporary variable (W^(i+1))
+    }
+
+    return W;                                                                                                    //Return pointer to the complex struct containing twiddle factors
+}
+
+
+
+complexfloat  *init_avr_fft(void)
+{
+    complexfloat *FFT_Array = malloc(sizeof(complexfloat)*N);                                               //Allocate heap memory 4*N bytes
+    return FFT_Array;                                                                                            //Returns pointer to allocated memory
+}
+
+
+
+void apply_avr_Window(complexfloat *FFT_Array, float *Window, uint16_t *Lookup_Reverse)
+{
+    for(uint16_t i = 0; i < (N/2); i++)
+    {
+        FFT_Array[Lookup_Reverse[i]] = cf_multiply_rf(FFT_Array[Lookup_Reverse[i]], Window[i]);           //Apply window to first half of samples
+    }
+
+    for(uint16_t i = (N/2); i > 0; i--)
+    {
+        FFT_Array[Lookup_Reverse[N-i]] = cf_multiply_rf(FFT_Array[Lookup_Reverse[N-i]], Window[i-1]);     //Apply window to second half of samples
+    }
+}
+
+
+
+void calc_avr_FFT(complexfloat* FFT_Array, complexfloat* W)
+{
+    uint16_t PCalc = (N/2);                                                                                      //Amount of parallel butterfly computations
+    complexfloat Temp;                                                                                           //Temporary variable for storing multiplication
+    uint16_t CNr = 2;                                                                                            //Keeps track of number of calculations per step
+
+    for(uint16_t i = 0; i < L; i++)                                                                              //Horizontal computation steps
+    {
+        for(uint16_t j = 0; j < PCalc; j++)                                                                      //Parallel computation steps
+        {
+            for(uint16_t k = 0; k < ((N/PCalc)/2); k++)                                                          //Calculation in one parallel
+            {
+                Temp = cf_multiply(FFT_Array[(CNr*j)+(k+(CNr/2))], W[k*((N/2)/(CNr/2))]);                  //Calculates multiplication in butterfly
+                FFT_Array[((j*CNr)+k)+(CNr/2)] = cf_minus(FFT_Array[(j*CNr)+k],Temp);                      //Calculates and stores bottom of butterfly
+                FFT_Array[(j*CNr)+k] = cf_plus(FFT_Array[(j*CNr)+k],Temp);                                 //Calculates and stores top of butterfly
+            }
+        }
+
+        CNr *= 2;                                                                                                //Set number of calculations per step to 2^k+1
+        PCalc /= 2;                                                                                              //Set parallel computations to half
+    }
+}
+
+
+
+
+
+
